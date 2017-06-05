@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtContenuImage" table="bswdt_contenu_image">
+    <class name="com.gj.model.BswdtContenuImage" table="bswdt_contenu_image">
         <id name="idContenuImage" type="java.lang.Integer">
             <column name="id_contenu_image" />
             <generator class="identity" />
@@ -30,7 +30,7 @@
             <key>
                 <column name="id_contenu_image" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+            <one-to-many class="com.gj.model.BswdtUniteRedactionnelle" />
         </set>
     </class>
 </hibernate-mapping>

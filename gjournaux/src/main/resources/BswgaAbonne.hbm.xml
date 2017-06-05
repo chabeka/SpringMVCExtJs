@@ -3,15 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaAbonne" table="bswga_abonne">
+    <class name="com.gj.model.BswgaAbonne" table="bswga_abonne">
         <id name="idAbonne" type="java.lang.Integer">
             <column name="id_abonne" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswgaCivilite" class="com.bsw.ga.model.BswgaCivilite" fetch="select">
+        <many-to-one name="bswgaCivilite" class="com.gj.model.BswgaCivilite" fetch="select">
             <column name="id_civilite" />
         </many-to-one>
-        <many-to-one name="bswgaCoordonnee" class="com.bsw.ga.model.BswgaCoordonnee" fetch="select">
+        <many-to-one name="bswgaCoordonnee" class="com.gj.model.BswgaCoordonnee" fetch="select">
             <column name="id_coordonnee" />
         </many-to-one>
         <property name="nom" type="string">
@@ -54,13 +54,13 @@
             <key>
                 <column name="id_abonne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaJournalHasAbonne" />
+            <one-to-many class="com.gj.model.BswgaJournalHasAbonne" />
         </set>
         <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_abonne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+            <one-to-many class="com.gj.model.BswgaAbonnement" />
         </set>
     </class>
 </hibernate-mapping>

@@ -3,33 +3,33 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswJournal" table="bsw_journal">
+    <class name="com.gj.model.BswJournal" table="bsw_journal">
         <id name="idJournal" type="java.lang.Integer">
             <column name="id_journal" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswUnitorgByIdUnitorgBayard" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+        <many-to-one name="bswUnitorgByIdUnitorgBayard" class="com.gj.model.BswUnitorg" lazy="false" fetch="select">
             <column name="id_unitorg_bayard" />
         </many-to-one>
-        <many-to-one name="bswUnitorgByIdUnitorgClient" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+        <many-to-one name="bswUnitorgByIdUnitorgClient" class="com.gj.model.BswUnitorg" lazy="false" fetch="select">
             <column name="id_unitorg_client" />
         </many-to-one>
-        <many-to-one name="bswPersonneByIdResponsableAbonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+        <many-to-one name="bswPersonneByIdResponsableAbonne" class="com.gj.model.BswPersonne" fetch="select">
             <column name="id_responsable_abonne" />
         </many-to-one>
-        <many-to-one name="bswPersonneByIdResponsable" class="com.bsw.ga.model.BswPersonne" fetch="select">
+        <many-to-one name="bswPersonneByIdResponsable" class="com.gj.model.BswPersonne" fetch="select">
             <column name="id_responsable" />
         </many-to-one>
-        <many-to-one name="bswSousFamille" class="com.bsw.ga.model.BswSousFamille" fetch="select">
+        <many-to-one name="bswSousFamille" class="com.gj.model.BswSousFamille" fetch="select">
             <column name="id_sous_famille" />
         </many-to-one>
-        <many-to-one name="bswUnitorgByIdUnitorgImprimeur" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+        <many-to-one name="bswUnitorgByIdUnitorgImprimeur" class="com.gj.model.BswUnitorg" lazy="false" fetch="select">
             <column name="id_unitorg_imprimeur" />
         </many-to-one>
-        <many-to-one name="bswPersonneByIdReferent" class="com.bsw.ga.model.BswPersonne" fetch="select">
+        <many-to-one name="bswPersonneByIdReferent" class="com.gj.model.BswPersonne" fetch="select">
             <column name="id_referent" />
         </many-to-one>
-        <many-to-one name="bswFamille" class="com.bsw.ga.model.BswFamille" fetch="select">
+        <many-to-one name="bswFamille" class="com.gj.model.BswFamille" fetch="select">
             <column name="id_famille" />
         </many-to-one>
         <property name="titre" type="string">
@@ -117,25 +117,25 @@
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaJournalHasAbonne" />
+            <one-to-many class="com.gj.model.BswgaJournalHasAbonne" />
         </set>
         <set name="bswConfigurationPaiements" table="bsw_configuration_paiement" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswConfigurationPaiement" />
+            <one-to-many class="com.gj.model.BswConfigurationPaiement" />
         </set>
         <set name="bswMultiSiteses" table="bsw_multi_sites" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswMultiSites" />
+            <one-to-many class="com.gj.model.BswMultiSites" />
         </set>
         <set name="bswUnitorgs" table="bsw_unitorg_etablissement_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_journal_fond_commun" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswUnitorg">
+            <many-to-many entity-name="com.gj.model.BswUnitorg">
                 <column name="id_unitorg_etablissement" not-null="true" />
             </many-to-many>
         </set>
@@ -143,7 +143,7 @@
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswApplication">
+            <many-to-many entity-name="com.gj.model.BswApplication">
                 <column name="id_application" not-null="true" />
             </many-to-many>
         </set>
@@ -151,19 +151,19 @@
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaTypeAbonne" />
+            <one-to-many class="com.gj.model.BswgaTypeAbonne" />
         </set>
         <set name="bswdtPages" table="bswdt_page" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+            <one-to-many class="com.gj.model.BswdtPage" />
         </set>
         <set name="bswPersonnes" table="bsw_responsable_has_bsw_journal" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+            <many-to-many entity-name="com.gj.model.BswPersonne">
                 <column name="id_personne" not-null="true" />
             </many-to-many>
         </set>
@@ -171,25 +171,25 @@
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaModeExpedition" />
+            <one-to-many class="com.gj.model.BswgaModeExpedition" />
         </set>
         <set name="bswParutions" table="bsw_parution" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswParution" />
+            <one-to-many class="com.gj.model.BswParution" />
         </set>
         <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+            <one-to-many class="com.gj.model.BswgaAbonnement" />
         </set>
         <set name="bswdtModelPages" table="bswdt_journal_has_model_page" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswdtModelPage">
+            <many-to-many entity-name="com.gj.model.BswdtModelPage">
                 <column name="id_model_page" not-null="true" />
             </many-to-many>
         </set>
@@ -197,25 +197,25 @@
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaSecteur" />
+            <one-to-many class="com.gj.model.BswgaSecteur" />
         </set>
         <set name="bswgaTarifs" table="bswga_tarif" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaTarif" />
+            <one-to-many class="com.gj.model.BswgaTarif" />
         </set>
         <set name="bswgaModeles" table="bswga_modele" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaModele" />
+            <one-to-many class="com.gj.model.BswgaModele" />
         </set>
         <set name="bswJournalsForIdJournal" table="bsw_journal_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_journal_fond_commun" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal" not-null="true" />
             </many-to-many>
         </set>
@@ -223,7 +223,7 @@
             <key>
                 <column name="id_journal_disponible" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+            <many-to-many entity-name="com.gj.model.BswPersonne">
                 <column name="id_personne_disponilbe" not-null="true" />
             </many-to-many>
         </set>
@@ -231,7 +231,7 @@
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal_fond_commun" not-null="true" />
             </many-to-many>
         </set>
@@ -239,7 +239,7 @@
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswSecteur">
+            <many-to-many entity-name="com.gj.model.BswSecteur">
                 <column name="id_secteur" not-null="true" />
             </many-to-many>
         </set>
@@ -247,7 +247,7 @@
             <key>
                 <column name="id_journal" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswDepartement">
+            <many-to-many entity-name="com.gj.model.BswDepartement">
                 <column name="id_departement" not-null="true" />
             </many-to-many>
         </set>

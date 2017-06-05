@@ -3,18 +3,18 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtForum" table="bswdt_forum">
+    <class name="com.gj.model.BswdtForum" table="bswdt_forum">
         <id name="idForum" type="java.lang.Integer">
             <column name="id_forum" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswdtForum" class="com.bsw.ga.model.BswdtForum" fetch="select">
+        <many-to-one name="bswdtForum" class="com.gj.model.BswdtForum" fetch="select">
             <column name="id_forum_parent" />
         </many-to-one>
-        <many-to-one name="bswPersonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+        <many-to-one name="bswPersonne" class="com.gj.model.BswPersonne" fetch="select">
             <column name="id_personne" />
         </many-to-one>
-        <many-to-one name="bswdtUniteRedactionnelle" class="com.bsw.ga.model.BswdtUniteRedactionnelle" fetch="select">
+        <many-to-one name="bswdtUniteRedactionnelle" class="com.gj.model.BswdtUniteRedactionnelle" fetch="select">
             <column name="id_unite_redactionnelle" />
         </many-to-one>
         <property name="sujet" type="string">
@@ -33,7 +33,7 @@
             <key>
                 <column name="id_forum_parent" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtForum" />
+            <one-to-many class="com.gj.model.BswdtForum" />
         </set>
     </class>
 </hibernate-mapping>

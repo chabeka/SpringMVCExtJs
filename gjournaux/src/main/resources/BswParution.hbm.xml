@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswParution" table="bsw_parution">
+    <class name="com.gj.model.BswParution" table="bsw_parution">
         <id name="idParution" type="java.lang.Integer">
             <column name="id_parution" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
         <property name="mensualite" type="string">
@@ -72,13 +72,13 @@
             <key>
                 <column name="id_parution" not-null="true" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdfFichier" />
+            <one-to-many class="com.gj.model.BswdfFichier" />
         </set>
         <set name="bswParutionsForIdParutionFondCommun" table="bsw_parution_has_bsw_parution" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_parution" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+            <many-to-many entity-name="com.gj.model.BswParution">
                 <column name="id_parution_fond_commun" not-null="true" />
             </many-to-many>
         </set>
@@ -86,7 +86,7 @@
             <key>
                 <column name="id_parution" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswgaTarif">
+            <many-to-many entity-name="com.gj.model.BswgaTarif">
                 <column name="id_tarif" not-null="true" />
             </many-to-many>
         </set>
@@ -94,7 +94,7 @@
             <key>
                 <column name="id_parution_fond_commun" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+            <many-to-many entity-name="com.gj.model.BswParution">
                 <column name="id_parution" not-null="true" />
             </many-to-many>
         </set>
@@ -102,7 +102,7 @@
             <key>
                 <column name="id_parution" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+            <one-to-many class="com.gj.model.BswdtPage" />
         </set>
     </class>
 </hibernate-mapping>

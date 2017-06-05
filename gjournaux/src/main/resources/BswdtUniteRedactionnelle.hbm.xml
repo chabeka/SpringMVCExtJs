@@ -3,27 +3,27 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtUniteRedactionnelle" table="bswdt_unite_redactionnelle">
+    <class name="com.gj.model.BswdtUniteRedactionnelle" table="bswdt_unite_redactionnelle">
         <id name="idUniteRedactionnelle" type="java.lang.Integer">
             <column name="id_unite_redactionnelle" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswdtContenuTexte" class="com.bsw.ga.model.BswdtContenuTexte" fetch="select">
+        <many-to-one name="bswdtContenuTexte" class="com.gj.model.BswdtContenuTexte" fetch="select">
             <column name="id_contenu_texte" />
         </many-to-one>
-        <many-to-one name="bswdtContenuImage" class="com.bsw.ga.model.BswdtContenuImage" fetch="select">
+        <many-to-one name="bswdtContenuImage" class="com.gj.model.BswdtContenuImage" fetch="select">
             <column name="id_contenu_image" />
         </many-to-one>
-        <many-to-one name="bswPersonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+        <many-to-one name="bswPersonne" class="com.gj.model.BswPersonne" fetch="select">
             <column name="id_personne" />
         </many-to-one>
-        <many-to-one name="bswdtUniteRedactionnelleDefinition" class="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" fetch="select">
+        <many-to-one name="bswdtUniteRedactionnelleDefinition" class="com.gj.model.BswdtUniteRedactionnelleDefinition" fetch="select">
             <column name="id_unite_redactionnelle_definition" />
         </many-to-one>
-        <many-to-one name="bswdtPage" class="com.bsw.ga.model.BswdtPage" fetch="select">
+        <many-to-one name="bswdtPage" class="com.gj.model.BswdtPage" fetch="select">
             <column name="id_page" />
         </many-to-one>
-        <many-to-one name="bswdtContenuFichier" class="com.bsw.ga.model.BswdtContenuFichier" fetch="select">
+        <many-to-one name="bswdtContenuFichier" class="com.gj.model.BswdtContenuFichier" fetch="select">
             <column name="id_contenu_fichier" />
         </many-to-one>
         <property name="numero" type="string">
@@ -77,7 +77,7 @@
             <key>
                 <column name="id_unite_redactionnelle" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtForum" />
+            <one-to-many class="com.gj.model.BswdtForum" />
         </set>
     </class>
 </hibernate-mapping>

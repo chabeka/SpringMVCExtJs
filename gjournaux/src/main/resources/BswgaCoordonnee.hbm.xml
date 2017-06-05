@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaCoordonnee" table="bswga_coordonnee">
+    <class name="com.gj.model.BswgaCoordonnee" table="bswga_coordonnee">
         <id name="idCoordonnee" type="java.lang.Integer">
             <column name="id_coordonnee" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswgaPays" class="com.bsw.ga.model.BswgaPays" fetch="select">
+        <many-to-one name="bswgaPays" class="com.gj.model.BswgaPays" fetch="select">
             <column name="id_pays" not-null="true" />
         </many-to-one>
         <property name="libelle" type="string">
@@ -66,19 +66,19 @@
             <key>
                 <column name="id_coordonnee" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaModeExpedition" />
+            <one-to-many class="com.gj.model.BswgaModeExpedition" />
         </set>
         <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_coordonnee" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+            <one-to-many class="com.gj.model.BswgaAbonnement" />
         </set>
         <set name="bswgaAbonnes" table="bswga_abonne" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_coordonnee" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonne" />
+            <one-to-many class="com.gj.model.BswgaAbonne" />
         </set>
     </class>
 </hibernate-mapping>

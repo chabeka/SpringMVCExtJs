@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaTypeAbonne" table="bswga_type_abonne">
+    <class name="com.gj.model.BswgaTypeAbonne" table="bswga_type_abonne">
         <id name="idTypeAbonne" type="java.lang.Integer">
             <column name="id_type_abonne" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
         <property name="nom" type="string">
@@ -21,7 +21,7 @@
             <key>
                 <column name="id_type_abonne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaJournalHasAbonne" />
+            <one-to-many class="com.gj.model.BswgaJournalHasAbonne" />
         </set>
     </class>
 </hibernate-mapping>

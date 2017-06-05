@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtModelPage" table="bswdt_model_page">
+    <class name="com.gj.model.BswdtModelPage" table="bswdt_model_page">
         <id name="idModelPage" type="java.lang.Integer">
             <column name="id_model_page" />
             <generator class="identity" />
@@ -24,13 +24,13 @@
             <key>
                 <column name="id_model_page" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+            <one-to-many class="com.gj.model.BswdtPage" />
         </set>
         <set name="bswJournals" table="bswdt_journal_has_model_page" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_model_page" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal" not-null="true" />
             </many-to-many>
         </set>
@@ -38,7 +38,7 @@
             <key>
                 <column name="id_model_page" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" />
+            <one-to-many class="com.gj.model.BswdtUniteRedactionnelleDefinition" />
         </set>
     </class>
 </hibernate-mapping>

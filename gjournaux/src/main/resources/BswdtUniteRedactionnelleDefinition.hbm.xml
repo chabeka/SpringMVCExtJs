@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" table="bswdt_unite_redactionnelle_definition">
+    <class name="com.gj.model.BswdtUniteRedactionnelleDefinition" table="bswdt_unite_redactionnelle_definition">
         <id name="idUniteRedactionnelleDefinition" type="java.lang.Integer">
             <column name="id_unite_redactionnelle_definition" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswdtModelPage" class="com.bsw.ga.model.BswdtModelPage" fetch="select">
+        <many-to-one name="bswdtModelPage" class="com.gj.model.BswdtModelPage" fetch="select">
             <column name="id_model_page" />
         </many-to-one>
         <property name="type" type="string">
@@ -93,7 +93,7 @@
             <key>
                 <column name="id_unite_redactionnelle_definition" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+            <one-to-many class="com.gj.model.BswdtUniteRedactionnelle" />
         </set>
     </class>
 </hibernate-mapping>

@@ -3,24 +3,24 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaAbonnement" table="bswga_abonnement">
+    <class name="com.gj.model.BswgaAbonnement" table="bswga_abonnement">
         <id name="idAbonnement" type="java.lang.Integer">
             <column name="id_abonnement" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswgaModeExpedition" class="com.bsw.ga.model.BswgaModeExpedition" fetch="select">
+        <many-to-one name="bswgaModeExpedition" class="com.gj.model.BswgaModeExpedition" fetch="select">
             <column name="id_mode_expedition" />
         </many-to-one>
-        <many-to-one name="bswgaTarif" class="com.bsw.ga.model.BswgaTarif" fetch="select">
+        <many-to-one name="bswgaTarif" class="com.gj.model.BswgaTarif" fetch="select">
             <column name="id_tarif" />
         </many-to-one>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
-        <many-to-one name="bswgaAbonne" class="com.bsw.ga.model.BswgaAbonne" fetch="select">
+        <many-to-one name="bswgaAbonne" class="com.gj.model.BswgaAbonne" fetch="select">
             <column name="id_abonne" />
         </many-to-one>
-        <many-to-one name="bswgaCoordonnee" class="com.bsw.ga.model.BswgaCoordonnee" fetch="select">
+        <many-to-one name="bswgaCoordonnee" class="com.gj.model.BswgaCoordonnee" fetch="select">
             <column name="id_coordonnee" />
         </many-to-one>
         <property name="nbExemplaires" type="java.lang.Integer">
@@ -51,13 +51,13 @@
             <key>
                 <column name="id_abonnement" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaPaiement" />
+            <one-to-many class="com.gj.model.BswgaPaiement" />
         </set>
         <set name="bswgaFactures" table="bswga_facture" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_abonnement" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaFacture" />
+            <one-to-many class="com.gj.model.BswgaFacture" />
         </set>
     </class>
 </hibernate-mapping>

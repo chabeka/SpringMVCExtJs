@@ -3,18 +3,18 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswdtPage" table="bswdt_page">
+    <class name="com.gj.model.BswdtPage" table="bswdt_page">
         <id name="idPage" type="java.lang.Integer">
             <column name="id_page" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswParution" class="com.bsw.ga.model.BswParution" fetch="select">
+        <many-to-one name="bswParution" class="com.gj.model.BswParution" fetch="select">
             <column name="id_parution" />
         </many-to-one>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
-        <many-to-one name="bswdtModelPage" class="com.bsw.ga.model.BswdtModelPage" fetch="select">
+        <many-to-one name="bswdtModelPage" class="com.gj.model.BswdtModelPage" fetch="select">
             <column name="id_model_page" />
         </many-to-one>
         <property name="libelle" type="string">
@@ -30,7 +30,7 @@
             <key>
                 <column name="id_page" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswdtRubrique">
+            <many-to-many entity-name="com.gj.model.BswdtRubrique">
                 <column name="id_rubrique" not-null="true" />
             </many-to-many>
         </set>
@@ -38,13 +38,13 @@
             <key>
                 <column name="id_page" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+            <one-to-many class="com.gj.model.BswdtUniteRedactionnelle" />
         </set>
         <set name="bswPersonnes" table="bsw_personne_has_bswdt_page" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="bswdt_page_id_page" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+            <many-to-many entity-name="com.gj.model.BswPersonne">
                 <column name="bsw_personne_id_personne" not-null="true" />
             </many-to-many>
         </set>

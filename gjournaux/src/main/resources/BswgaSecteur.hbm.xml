@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaSecteur" table="bswga_secteur">
+    <class name="com.gj.model.BswgaSecteur" table="bswga_secteur">
         <id name="idSecteur" type="java.lang.Integer">
             <column name="id_secteur" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
         <property name="nom" type="string">
@@ -21,7 +21,7 @@
             <key>
                 <column name="id_secteur" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+            <many-to-many entity-name="com.gj.model.BswPersonne">
                 <column name="id_personne" not-null="true" />
             </many-to-many>
         </set>
@@ -29,7 +29,7 @@
             <key>
                 <column name="id_secteur" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+            <many-to-many entity-name="com.gj.model.BswPersonne">
                 <column name="id_personne" not-null="true" />
             </many-to-many>
         </set>
@@ -37,7 +37,7 @@
             <key>
                 <column name="id_secteur" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaJournalHasAbonne" />
+            <one-to-many class="com.gj.model.BswgaJournalHasAbonne" />
         </set>
     </class>
 </hibernate-mapping>

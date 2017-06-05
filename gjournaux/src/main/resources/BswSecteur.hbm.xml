@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswSecteur" table="bsw_secteur">
+    <class name="com.gj.model.BswSecteur" table="bsw_secteur">
         <id name="idSecteur" type="java.lang.Integer">
             <column name="id_secteur" />
             <generator class="identity" />
@@ -15,7 +15,7 @@
             <key>
                 <column name="id_secteur" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal" not-null="true" />
             </many-to-many>
         </set>

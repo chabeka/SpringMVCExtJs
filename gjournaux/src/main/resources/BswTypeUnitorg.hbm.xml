@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswTypeUnitorg" table="bsw_type_unitorg">
+    <class name="com.gj.model.BswTypeUnitorg" table="bsw_type_unitorg">
         <id name="idTypeUnitorg" type="java.lang.Integer">
             <column name="id_type_unitorg" />
             <generator class="identity" />
@@ -21,7 +21,7 @@
             <key>
                 <column name="id_type_unitorg" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswUnitorg" />
+            <one-to-many class="com.gj.model.BswUnitorg" />
         </set>
     </class>
 </hibernate-mapping>

@@ -3,18 +3,18 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaModeExpedition" table="bswga_mode_expedition">
+    <class name="com.gj.model.BswgaModeExpedition" table="bswga_mode_expedition">
         <id name="idModeExpedition" type="java.lang.Integer">
             <column name="id_mode_expedition" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" not-null="true" />
         </many-to-one>
-        <many-to-one name="bswgaTypeModeExpedition" class="com.bsw.ga.model.BswgaTypeModeExpedition" fetch="select">
+        <many-to-one name="bswgaTypeModeExpedition" class="com.gj.model.BswgaTypeModeExpedition" fetch="select">
             <column name="id_type_mode_expedition" not-null="true" />
         </many-to-one>
-        <many-to-one name="bswgaCoordonnee" class="com.bsw.ga.model.BswgaCoordonnee" fetch="select">
+        <many-to-one name="bswgaCoordonnee" class="com.gj.model.BswgaCoordonnee" fetch="select">
             <column name="id_coordonnee" />
         </many-to-one>
         <property name="mode" type="string">
@@ -27,7 +27,7 @@
             <key>
                 <column name="id_mode_expedition" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+            <one-to-many class="com.gj.model.BswgaAbonnement" />
         </set>
     </class>
 </hibernate-mapping>

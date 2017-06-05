@@ -3,15 +3,15 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaTarif" table="bswga_tarif">
+    <class name="com.gj.model.BswgaTarif" table="bswga_tarif">
         <id name="idTarif" type="java.lang.Integer">
             <column name="id_tarif" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" />
         </many-to-one>
-        <many-to-one name="bswgaTva" class="com.bsw.ga.model.BswgaTva" fetch="select">
+        <many-to-one name="bswgaTva" class="com.gj.model.BswgaTva" fetch="select">
             <column name="id_tva" not-null="true" />
         </many-to-one>
         <property name="nom" type="string">
@@ -36,13 +36,13 @@
             <key>
                 <column name="id_tarif" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+            <one-to-many class="com.gj.model.BswgaAbonnement" />
         </set>
         <set name="bswParutions" table="bsw_parution_has_bswga_tarif" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_tarif" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+            <many-to-many entity-name="com.gj.model.BswParution">
                 <column name="id_parution" not-null="true" />
             </many-to-many>
         </set>

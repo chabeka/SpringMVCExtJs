@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswPersonne" table="bsw_personne">
+    <class name="com.gj.model.BswPersonne" table="bsw_personne">
         <id name="idPersonne" type="java.lang.Integer">
             <column name="id_personne" />
             <generator class="identity" />
@@ -45,7 +45,7 @@
             <key>
                 <column name="id_personne" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswgaSecteur">
+            <many-to-many entity-name="com.gj.model.BswgaSecteur">
                 <column name="id_secteur" not-null="true" />
             </many-to-many>
         </set>
@@ -53,31 +53,31 @@
             <key>
                 <column name="id_responsable" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
         <set name="bswFonctions" table="bsw_fonction" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_personne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswFonction" />
+            <one-to-many class="com.gj.model.BswFonction" />
         </set>
         <set name="bswdtForums" table="bswdt_forum" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_personne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtForum" />
+            <one-to-many class="com.gj.model.BswdtForum" />
         </set>
         <set name="bswJournalsForIdReferent" table="bsw_journal" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_referent" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
         <set name="bswJournals" table="bsw_responsable_has_bsw_journal" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_personne" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal" not-null="true" />
             </many-to-many>
         </set>
@@ -85,7 +85,7 @@
             <key>
                 <column name="bsw_personne_id_personne" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswdtPage">
+            <many-to-many entity-name="com.gj.model.BswdtPage">
                 <column name="bswdt_page_id_page" not-null="true" />
             </many-to-many>
         </set>
@@ -93,13 +93,13 @@
             <key>
                 <column name="id_personne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+            <one-to-many class="com.gj.model.BswdtUniteRedactionnelle" />
         </set>
         <!-- set name="bswMultiSiteses" table="bsw_personne_has_bsw_multi_sites" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_personne" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswMultiSites">
+            <many-to-many entity-name="com.gj.model.BswMultiSites">
                 <column name="id_multi_site" not-null="true" />
             </many-to-many>
         </set> -->
@@ -107,7 +107,7 @@
             <key>
                 <column name="id_personne" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswgaSecteur">
+            <many-to-many entity-name="com.gj.model.BswgaSecteur">
                 <column name="id_secteur" not-null="true" />
             </many-to-many>
         </set>
@@ -115,7 +115,7 @@
             <key>
                 <column name="id_personne_disponilbe" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal_disponible" not-null="true" />
             </many-to-many>
         </set>
@@ -123,13 +123,13 @@
             <key>
                 <column name="id_personne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswCoordonnee" />
+            <one-to-many class="com.gj.model.BswCoordonnee" />
         </set>
         <set name="bswJournalsForIdResponsableAbonne" table="bsw_journal" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_responsable_abonne" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
     </class>
 </hibernate-mapping>

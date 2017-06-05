@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswSousFamille" table="bsw_sous_famille">
+    <class name="com.gj.model.BswSousFamille" table="bsw_sous_famille">
         <id name="idSousFamille" type="java.lang.Integer">
             <column name="id_sous_famille" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswFamille" class="com.bsw.ga.model.BswFamille" fetch="select">
+        <many-to-one name="bswFamille" class="com.gj.model.BswFamille" fetch="select">
             <column name="id_famille" />
         </many-to-one>
         <property name="nom" type="string">
@@ -18,7 +18,7 @@
             <key>
                 <column name="id_sous_famille" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
     </class>
 </hibernate-mapping>

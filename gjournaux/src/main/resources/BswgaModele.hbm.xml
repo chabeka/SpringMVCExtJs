@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswgaModele" table="bswga_modele">
+    <class name="com.gj.model.BswgaModele" table="bswga_modele">
         <id name="idModele" type="java.lang.Integer">
             <column name="id_modele" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+        <many-to-one name="bswJournal" class="com.gj.model.BswJournal" fetch="select">
             <column name="id_journal" not-null="true" />
         </many-to-one>
         <property name="nom" type="string">

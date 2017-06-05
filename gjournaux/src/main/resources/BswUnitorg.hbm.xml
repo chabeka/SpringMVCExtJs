@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.bsw.ga.model.BswUnitorg" table="bsw_unitorg">
+    <class name="com.gj.model.BswUnitorg" table="bsw_unitorg">
         <id name="idUnitorg" type="java.lang.Integer">
             <column name="id_unitorg" />
             <generator class="identity" />
         </id>
-        <many-to-one name="bswTypeUnitorg" class="com.bsw.ga.model.BswTypeUnitorg" fetch="select" lazy="false">
+        <many-to-one name="bswTypeUnitorg" class="com.gj.model.BswTypeUnitorg" fetch="select" lazy="false">
             <column name="id_type_unitorg" />
         </many-to-one>
         <property name="idPortalEntity" type="java.lang.Integer">
@@ -51,7 +51,7 @@
             <key>
                 <column name="id_unitorg_pere" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswUnitorg">
+            <many-to-many entity-name="com.gj.model.BswUnitorg">
                 <column name="id_unitorg_fils" not-null="true" />
             </many-to-many>
         </set>
@@ -59,13 +59,13 @@
             <key>
                 <column name="id_unitorg_client" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
         <set name="bswJournals" table="bsw_unitorg_etablissement_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_unitorg_etablissement" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+            <many-to-many entity-name="com.gj.model.BswJournal">
                 <column name="id_journal_fond_commun" not-null="true" />
             </many-to-many>
         </set>
@@ -73,25 +73,25 @@
             <key>
                 <column name="id_unitorg_imprimeur" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
         <set name="bswCoordonnees" table="bsw_coordonnee" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="id_unitorg" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswCoordonnee" />
+            <one-to-many class="com.gj.model.BswCoordonnee" />
         </set>
         <set name="bswFonctions" table="bsw_fonction" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_bsw_unitorg" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswFonction" />
+            <one-to-many class="com.gj.model.BswFonction" />
         </set>
         <set name="bswUnitorgsForIdUnitorgPere" table="bsw_unitorg_has_bsw_unitorg" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="id_unitorg_fils" not-null="true" />
             </key>
-            <many-to-many entity-name="com.bsw.ga.model.BswUnitorg">
+            <many-to-many entity-name="com.gj.model.BswUnitorg">
                 <column name="id_unitorg_pere" not-null="true" />
             </many-to-many>
         </set>
@@ -99,7 +99,7 @@
             <key>
                 <column name="id_unitorg_bayard" />
             </key>
-            <one-to-many class="com.bsw.ga.model.BswJournal" />
+            <one-to-many class="com.gj.model.BswJournal" />
         </set>
     </class>
 </hibernate-mapping>
