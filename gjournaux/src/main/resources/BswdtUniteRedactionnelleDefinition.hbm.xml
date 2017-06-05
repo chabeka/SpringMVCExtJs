@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" table="bswdt_unite_redactionnelle_definition">
+        <id name="idUniteRedactionnelleDefinition" type="java.lang.Integer">
+            <column name="id_unite_redactionnelle_definition" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswdtModelPage" class="com.bsw.ga.model.BswdtModelPage" fetch="select">
+            <column name="id_model_page" />
+        </many-to-one>
+        <property name="type" type="string">
+            <column name="type" />
+        </property>
+        <property name="numero" type="string">
+            <column name="numero" />
+        </property>
+        <property name="nombreSigneTexte" type="int">
+            <column name="nombre_signe_texte" not-null="true" />
+        </property>
+        <property name="nombreSigneTitre" type="int">
+            <column name="nombre_signe_titre" not-null="true" />
+        </property>
+        <property name="largeur" type="java.lang.Float">
+            <column name="largeur" precision="12" scale="0" />
+        </property>
+        <property name="hauteur" type="java.lang.Float">
+            <column name="hauteur" precision="12" scale="0" />
+        </property>
+        <property name="modifiable" type="java.lang.Boolean">
+            <column name="modifiable" />
+        </property>
+        <property name="reference" type="string">
+            <column name="reference" />
+        </property>
+        <property name="miseEnPage" type="boolean">
+            <column name="mise_en_page" not-null="true" />
+        </property>
+        <property name="margeBasse" type="java.lang.Integer">
+            <column name="marge_basse" />
+        </property>
+        <property name="margeHaute" type="java.lang.Integer">
+            <column name="marge_haute" />
+        </property>
+        <property name="nombreSigneSurTitre" type="int">
+            <column name="nombre_signe_sur_titre" not-null="true" />
+        </property>
+        <property name="nombreSigneEncadrerUn" type="int">
+            <column name="nombre_signe_encadrer_un" not-null="true" />
+        </property>
+        <property name="nombreSigneEncadrerDeux" type="int">
+            <column name="nombre_signe_encadrer_deux" not-null="true" />
+        </property>
+        <property name="nombreSigneEncadrerTrois" type="int">
+            <column name="nombre_signe_encadrer_trois" not-null="true" />
+        </property>
+        <property name="nombreSigneEncadrerQuatre" type="int">
+            <column name="nombre_signe_encadrer_quatre" not-null="true" />
+        </property>
+        <property name="margeHauteTitre" type="int">
+            <column name="marge_haute_titre" not-null="true" />
+        </property>
+        <property name="margeBasseTitre" type="int">
+            <column name="marge_basse_titre" not-null="true" />
+        </property>
+        <property name="nombreSigneChapo" type="int">
+            <column name="nombre_signe_chapo" not-null="true" />
+        </property>
+        <property name="signeMinChapo" type="java.lang.Integer">
+            <column name="signe_min_chapo" />
+        </property>
+        <property name="signeMaxChapo" type="java.lang.Integer">
+            <column name="signe_max_chapo" />
+        </property>
+        <property name="nombreSigneExergue" type="int">
+            <column name="nombre_signe_exergue" not-null="true" />
+        </property>
+        <property name="signeMinExergue" type="int">
+            <column name="signe_min_exergue" not-null="true" />
+        </property>
+        <property name="signeMaxExergue" type="int">
+            <column name="signe_max_exergue" not-null="true" />
+        </property>
+        <property name="nombreSigneLegende" type="int">
+            <column name="nombre_signe_legende" not-null="true" />
+        </property>
+        <property name="nombreSigneCredit" type="int">
+            <column name="nombre_signe_credit" not-null="true" />
+        </property>
+        <set name="bswdtUniteRedactionnelles" table="bswdt_unite_redactionnelle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_unite_redactionnelle_definition" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+        </set>
+    </class>
+</hibernate-mapping>

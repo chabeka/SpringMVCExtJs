@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdtPage" table="bswdt_page">
+        <id name="idPage" type="java.lang.Integer">
+            <column name="id_page" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswParution" class="com.bsw.ga.model.BswParution" fetch="select">
+            <column name="id_parution" />
+        </many-to-one>
+        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+            <column name="id_journal" />
+        </many-to-one>
+        <many-to-one name="bswdtModelPage" class="com.bsw.ga.model.BswdtModelPage" fetch="select">
+            <column name="id_model_page" />
+        </many-to-one>
+        <property name="libelle" type="string">
+            <column name="libelle" />
+        </property>
+        <property name="numeroPage" type="java.lang.Integer">
+            <column name="numero_page" />
+        </property>
+        <property name="locked" type="boolean">
+            <column name="locked" not-null="true" />
+        </property>
+        <set name="bswdtRubriques" table="bswdt_page_has_rubrique" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_page" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswdtRubrique">
+                <column name="id_rubrique" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswdtUniteRedactionnelles" table="bswdt_unite_redactionnelle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_page" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+        </set>
+        <set name="bswPersonnes" table="bsw_personne_has_bswdt_page" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="bswdt_page_id_page" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+                <column name="bsw_personne_id_personne" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

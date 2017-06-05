@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdtContenuTexte" table="bswdt_contenu_texte">
+        <id name="idContenuTexte" type="java.lang.Integer">
+            <column name="id_contenu_texte" />
+            <generator class="identity" />
+        </id>
+        <property name="titre" type="string">
+            <column name="titre" />
+        </property>
+        <property name="texte" type="string">
+            <column name="texte" length="65535" />
+        </property>
+        <property name="chapo" type="string">
+            <column name="chapo" length="65535" />
+        </property>
+        <property name="exergue" type="string">
+            <column name="exergue" length="65535" />
+        </property>
+        <property name="surTitre" type="string">
+            <column name="sur_titre" />
+        </property>
+        <property name="source" type="string">
+            <column name="source" />
+        </property>
+        <property name="encadrerUn" type="string">
+            <column name="encadrer_un" length="65535" />
+        </property>
+        <property name="encadrerDeux" type="string">
+            <column name="encadrer_deux" length="65535" />
+        </property>
+        <property name="encadrerTrois" type="string">
+            <column name="encadrer_trois" length="65535" />
+        </property>
+        <property name="encadrerQuatre" type="string">
+            <column name="encadrer_quatre" length="65535" />
+        </property>
+        <set name="bswdtUniteRedactionnelles" table="bswdt_unite_redactionnelle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_contenu_texte" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+        </set>
+    </class>
+</hibernate-mapping>

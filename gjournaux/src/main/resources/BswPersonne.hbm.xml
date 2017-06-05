@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswPersonne" table="bsw_personne">
+        <id name="idPersonne" type="java.lang.Integer">
+            <column name="id_personne" />
+            <generator class="identity" />
+        </id>
+        <property name="idPortalEntity" type="java.lang.Integer">
+            <column name="id_portal_entity" />
+        </property>
+        <property name="nom" type="string">
+            <column name="nom" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" />
+        </property>
+        <property name="nomNaissance" type="string">
+            <column name="nom_naissance" />
+        </property>
+        <property name="dateNaissance" type="date">
+            <column name="date_naissance" length="0" />
+        </property>
+        <property name="sexe" type="string">
+            <column name="sexe" length="2" />
+        </property>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="65535" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="0" />
+        </property>
+        <property name="dateModification" type="timestamp">
+            <column name="date_modification" length="0" />
+        </property>
+        <property name="auteurCreation" type="string">
+            <column name="auteur_creation" />
+        </property>
+        <property name="auteurModification" type="string">
+            <column name="auteur_modification" />
+        </property>
+        <set name="bswgaSecteurs" table="bsw_personne_has_bswga_secteur" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswgaSecteur">
+                <column name="id_secteur" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswJournalsForIdResponsable" table="bsw_journal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_responsable" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswJournal" />
+        </set>
+        <set name="bswFonctions" table="bsw_fonction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswFonction" />
+        </set>
+        <set name="bswdtForums" table="bswdt_forum" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtForum" />
+        </set>
+        <set name="bswJournalsForIdReferent" table="bsw_journal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_referent" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswJournal" />
+        </set>
+        <set name="bswJournals" table="bsw_responsable_has_bsw_journal" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+                <column name="id_journal" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswdtPages" table="bsw_personne_has_bswdt_page" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="bsw_personne_id_personne" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswdtPage">
+                <column name="bswdt_page_id_page" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswdtUniteRedactionnelles" table="bswdt_unite_redactionnelle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelle" />
+        </set>
+        <!-- set name="bswMultiSiteses" table="bsw_personne_has_bsw_multi_sites" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswMultiSites">
+                <column name="id_multi_site" not-null="true" />
+            </many-to-many>
+        </set> -->
+        <set name="bswgaSecteurs_1" table="bswga_secteur_has_bsw_personne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswgaSecteur">
+                <column name="id_secteur" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswJournals_1" table="bsw_personne_has_bsw_journal" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne_disponilbe" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+                <column name="id_journal_disponible" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswCoordonnees" table="bsw_coordonnee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_personne" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswCoordonnee" />
+        </set>
+        <set name="bswJournalsForIdResponsableAbonne" table="bsw_journal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_responsable_abonne" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswJournal" />
+        </set>
+    </class>
+</hibernate-mapping>

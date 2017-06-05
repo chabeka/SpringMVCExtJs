@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswgaTarif" table="bswga_tarif">
+        <id name="idTarif" type="java.lang.Integer">
+            <column name="id_tarif" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+            <column name="id_journal" />
+        </many-to-one>
+        <many-to-one name="bswgaTva" class="com.bsw.ga.model.BswgaTva" fetch="select">
+            <column name="id_tva" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" />
+        </property>
+        <property name="nbNumeros" type="java.lang.Integer">
+            <column name="nb_numeros" />
+        </property>
+        <property name="prixUnitaireHt" type="big_decimal">
+            <column name="prix_unitaire_ht" precision="20" />
+        </property>
+        <property name="prixUnitaireTtc" type="big_decimal">
+            <column name="prix_unitaire_ttc" precision="20" />
+        </property>
+        <property name="periode" type="string">
+            <column name="periode" />
+        </property>
+        <property name="isPublic" type="boolean">
+            <column name="is_public" not-null="true" />
+        </property>
+        <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tarif" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+        </set>
+        <set name="bswParutions" table="bsw_parution_has_bswga_tarif" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_tarif" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+                <column name="id_parution" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

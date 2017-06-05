@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswFonction" table="bsw_fonction">
+        <id name="idFonction" type="java.lang.Integer">
+            <column name="id_fonction" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswPersonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+            <column name="id_personne" />
+        </many-to-one>
+        <many-to-one name="bswUnitorg" class="com.bsw.ga.model.BswUnitorg" fetch="select">
+            <column name="id_bsw_unitorg" />
+        </many-to-one>
+        <many-to-one name="bswLabelFonction" class="com.bsw.ga.model.BswLabelFonction" fetch="select">
+            <column name="id_label_fonction" />
+        </many-to-one>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="65535" />
+        </property>
+        <property name="dateDebut" type="date">
+            <column name="date_debut" length="0" />
+        </property>
+        <property name="dateFin" type="date">
+            <column name="date_fin" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

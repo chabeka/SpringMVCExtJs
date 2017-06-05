@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswModePaiement" table="bsw_mode_paiement">
+        <id name="idModePaiement" type="java.lang.Integer">
+            <column name="id_mode_paiement" />
+            <generator class="identity" />
+        </id>
+        <property name="abreviation" type="string">
+            <column name="abreviation" length="4" />
+        </property>
+        <property name="libelle" type="string">
+            <column name="libelle" />
+        </property>
+        <property name="explications" type="string">
+            <column name="explications" length="65535" />
+        </property>
+        <set name="bswConfigurationPaiements" table="bsw_reference_systeme_bancaire_has_bsw_mode_paiement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mode_paiement" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswConfigurationPaiement">
+                <column name="id_reference_systeme_bancaire" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

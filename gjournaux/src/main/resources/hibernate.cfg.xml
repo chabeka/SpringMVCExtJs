@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	  <session-factory>
+	    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	    <property name="show_sql">false</property> 
+	    <mapping resource="Users.hbm.xml"/>
+	    <mapping resource="BswdtModelPage.hbm.xml" />
+        <mapping resource="BswJournal.hbm.xml" />
+        <mapping resource="BswgaCivilite.hbm.xml" />
+        <mapping resource="BswgaAbonne.hbm.xml" />
+        <mapping resource="BswdtPage.hbm.xml" />
+        <mapping resource="BswConfigurationPaiement.hbm.xml" />
+        <mapping resource="BswSousFamille.hbm.xml" />
+        <mapping resource="BswCoordonnee.hbm.xml" />
+        <mapping resource="BswPersonne.hbm.xml" />
+        <mapping resource="BswgaTypeModeExpedition.hbm.xml" />
+        <mapping resource="BswgaSecteur.hbm.xml" />
+        <mapping resource="BswTypeUnitorg.hbm.xml" />
+        <mapping resource="BswAnnonce.hbm.xml" />
+        <mapping resource="BswParution.hbm.xml" />
+        <mapping resource="BswdfFichier.hbm.xml" />
+        <mapping resource="BswModePaiement.hbm.xml" />
+        <mapping resource="BswTransaction.hbm.xml" />
+        <mapping resource="BswUnitorg.hbm.xml" />
+        <mapping resource="BswdtContenuFichier.hbm.xml" />
+        <mapping resource="BswdtUniteRedactionnelleDefinition.hbm.xml" />
+        <mapping resource="BswgaModeExpedition.hbm.xml" />
+        <mapping resource="BswgaTypeAbonne.hbm.xml" />
+        <mapping resource="BswLabelFonction.hbm.xml" />
+        <mapping resource="BswdtContenuImage.hbm.xml" />
+        <mapping resource="BswFonction.hbm.xml" />
+        <mapping resource="BswgaModele.hbm.xml" />
+        <mapping resource="BswPays.hbm.xml" />
+        <mapping resource="BswdtRubrique.hbm.xml" />
+        <mapping resource="BswdtForum.hbm.xml" />
+        <mapping resource="BswgaAbonnement.hbm.xml" />
+        <mapping resource="BswMultiSites.hbm.xml" />
+        <mapping resource="BswgaTarif.hbm.xml" />
+        <mapping resource="BswgaTva.hbm.xml" />
+        <mapping resource="BswgaCoordonnee.hbm.xml" />
+        <mapping resource="BswgaJournalHasAbonne.hbm.xml" />
+        <mapping resource="BswdtContenuTexte.hbm.xml" />
+        <mapping resource="BswApplication.hbm.xml" />
+        <mapping resource="BswSecteur.hbm.xml" />
+        <mapping resource="BswgaFacture.hbm.xml" />
+        <mapping resource="BswFamille.hbm.xml" />
+        <mapping resource="BswgaPays.hbm.xml" />
+        <mapping resource="BswCommune.hbm.xml" />
+        <mapping resource="BswgaPaiement.hbm.xml" />
+        <mapping resource="BswgaEtatJasper.hbm.xml" />
+        <mapping resource="BswLog.hbm.xml" />
+        <mapping resource="BswdtUniteRedactionnelle.hbm.xml" />
+        <mapping resource="BswDepartement.hbm.xml" />
+	  </session-factory>
+</hibernate-configuration>

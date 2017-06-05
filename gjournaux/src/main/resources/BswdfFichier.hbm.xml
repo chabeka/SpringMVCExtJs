@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdfFichier" table="bswdf_fichier">
+        <id name="idFichier" type="java.lang.Integer">
+            <column name="id_fichier" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswParution" class="com.bsw.ga.model.BswParution" fetch="select">
+            <column name="id_parution" not-null="true" />
+        </many-to-one>
+        <property name="filename" type="string">
+            <column name="filename" not-null="true" />
+        </property>
+        <property name="noPage" type="string">
+            <column name="no_page" not-null="true" />
+        </property>
+        <property name="statut" type="int">
+            <column name="statut" not-null="true" />
+        </property>
+        <property name="auteurDepot" type="string">
+            <column name="auteur_depot" not-null="true" />
+        </property>
+        <property name="dateDepot" type="timestamp">
+            <column name="date_depot" length="0" not-null="true" />
+        </property>
+        <property name="auteurDerniereAction" type="string">
+            <column name="auteur_derniere_action" not-null="true" />
+        </property>
+        <property name="dateDerniereAction" type="timestamp">
+            <column name="date_derniere_action" length="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdtModelPage" table="bswdt_model_page">
+        <id name="idModelPage" type="java.lang.Integer">
+            <column name="id_model_page" />
+            <generator class="identity" />
+        </id>
+        <property name="libelle" type="string">
+            <column name="libelle" />
+        </property>
+        <property name="modifiable" type="java.lang.Boolean">
+            <column name="modifiable" />
+        </property>
+        <property name="imageSnapshot" type="string">
+            <column name="image_snapshot" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <set name="bswdtPages" table="bswdt_page" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_model_page" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+        </set>
+        <set name="bswJournals" table="bswdt_journal_has_model_page" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_model_page" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+                <column name="id_journal" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswdtUniteRedactionnelleDefinitions" table="bswdt_unite_redactionnelle_definition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_model_page" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" />
+        </set>
+    </class>
+</hibernate-mapping>

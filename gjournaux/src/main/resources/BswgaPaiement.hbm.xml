@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswgaPaiement" table="bswga_paiement">
+        <id name="idPaiement" type="java.lang.Integer">
+            <column name="id_paiement" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswgaAbonnement" class="com.bsw.ga.model.BswgaAbonnement" fetch="select">
+            <column name="id_abonnement" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="0" />
+        </property>
+        <property name="modePaiement" type="string">
+            <column name="mode_paiement" />
+        </property>
+        <property name="libelle" type="string">
+            <column name="libelle" />
+        </property>
+        <property name="montant" type="big_decimal">
+            <column name="montant" precision="20" />
+        </property>
+        <property name="nomPayeur" type="string">
+            <column name="nom_payeur" />
+        </property>
+        <property name="banque" type="string">
+            <column name="banque" />
+        </property>
+        <property name="dateDepot" type="date">
+            <column name="date_depot" length="0" />
+        </property>
+        <property name="dateEncaissement" type="date">
+            <column name="date_encaissement" length="0" />
+        </property>
+        <property name="banqueStatut" type="string">
+            <column name="banque_statut" />
+        </property>
+        <property name="banqueReference" type="string">
+            <column name="banque_reference" />
+        </property>
+        <property name="banqueLogs" type="string">
+            <column name="banque_logs" length="65535" />
+        </property>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>

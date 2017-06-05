@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswJournal" table="bsw_journal">
+        <id name="idJournal" type="java.lang.Integer">
+            <column name="id_journal" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswUnitorgByIdUnitorgBayard" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+            <column name="id_unitorg_bayard" />
+        </many-to-one>
+        <many-to-one name="bswUnitorgByIdUnitorgClient" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+            <column name="id_unitorg_client" />
+        </many-to-one>
+        <many-to-one name="bswPersonneByIdResponsableAbonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+            <column name="id_responsable_abonne" />
+        </many-to-one>
+        <many-to-one name="bswPersonneByIdResponsable" class="com.bsw.ga.model.BswPersonne" fetch="select">
+            <column name="id_responsable" />
+        </many-to-one>
+        <many-to-one name="bswSousFamille" class="com.bsw.ga.model.BswSousFamille" fetch="select">
+            <column name="id_sous_famille" />
+        </many-to-one>
+        <many-to-one name="bswUnitorgByIdUnitorgImprimeur" class="com.bsw.ga.model.BswUnitorg" lazy="false" fetch="select">
+            <column name="id_unitorg_imprimeur" />
+        </many-to-one>
+        <many-to-one name="bswPersonneByIdReferent" class="com.bsw.ga.model.BswPersonne" fetch="select">
+            <column name="id_referent" />
+        </many-to-one>
+        <many-to-one name="bswFamille" class="com.bsw.ga.model.BswFamille" fetch="select">
+            <column name="id_famille" />
+        </many-to-one>
+        <property name="titre" type="string">
+            <column name="titre" />
+        </property>
+        <property name="sousTitre" type="string">
+            <column name="sous_titre" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" />
+        </property>
+        <property name="lieu" type="string">
+            <column name="lieu" />
+        </property>
+        <property name="nbParutions" type="java.lang.Integer">
+            <column name="nb_parutions" />
+        </property>
+        <property name="nbPages" type="java.lang.Integer">
+            <column name="nb_pages" />
+        </property>
+        <property name="fondCommun" type="java.lang.Boolean">
+            <column name="fond_commun" />
+        </property>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="65535" />
+        </property>
+        <property name="abonnementOuvert" type="java.lang.Boolean">
+            <column name="abonnement_ouvert" />
+        </property>
+        <property name="paiementCb" type="boolean">
+            <column name="paiement_cb" not-null="true" />
+        </property>
+        <property name="formatFacture" type="string">
+            <column name="format_facture" />
+        </property>
+        <property name="formatClient" type="string">
+            <column name="format_client" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="0" />
+        </property>
+        <property name="dateModification" type="timestamp">
+            <column name="date_modification" length="0" />
+        </property>
+        <property name="auteurCreation" type="string">
+            <column name="auteur_creation" />
+        </property>
+        <property name="auteurModification" type="string">
+            <column name="auteur_modification" />
+        </property>
+        <property name="urlApercuVignette" type="string">
+            <column name="url_apercu_vignette" />
+        </property>
+        <property name="urlPagePresentation" type="string">
+            <column name="url_page_presentation" />
+        </property>
+        <property name="localite" type="string">
+            <column name="localite" />
+        </property>
+        <property name="sequencePagination" type="string">
+            <column name="sequence_pagination" />
+        </property>
+        <property name="reference" type="string">
+            <column name="reference" />
+        </property>
+        <property name="fusionDesUrs" type="java.lang.Boolean">
+            <column name="fusion_des_urs" />
+        </property>
+        <property name="siteGeneBase" type="string">
+            <column name="site_gene_base" />
+        </property>
+        <property name="siteGeneUrl" type="string">
+            <column name="site_gene_url" />
+        </property>
+        <property name="siteGeneLogin" type="string">
+            <column name="site_gene_login" />
+        </property>
+        <property name="siteGeneMdp" type="string">
+            <column name="site_gene_mdp" />
+        </property>
+        <property name="miseEnFormeEtendue" type="boolean">
+            <column name="mise_en_forme_etendue" not-null="true" />
+        </property>
+        <set name="bswgaJournalHasAbonnes" table="bswga_journal_has_abonne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaJournalHasAbonne" />
+        </set>
+        <set name="bswConfigurationPaiements" table="bsw_configuration_paiement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswConfigurationPaiement" />
+        </set>
+        <set name="bswMultiSiteses" table="bsw_multi_sites" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswMultiSites" />
+        </set>
+        <set name="bswUnitorgs" table="bsw_unitorg_etablissement_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal_fond_commun" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswUnitorg">
+                <column name="id_unitorg_etablissement" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswApplications" table="bsw_journal_has_bsw_application" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswApplication">
+                <column name="id_application" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswgaTypeAbonnes" table="bswga_type_abonne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaTypeAbonne" />
+        </set>
+        <set name="bswdtPages" table="bswdt_page" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+        </set>
+        <set name="bswPersonnes" table="bsw_responsable_has_bsw_journal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+                <column name="id_personne" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswgaModeExpeditions" table="bswga_mode_expedition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaModeExpedition" />
+        </set>
+        <set name="bswParutions" table="bsw_parution" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswParution" />
+        </set>
+        <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+        </set>
+        <set name="bswdtModelPages" table="bswdt_journal_has_model_page" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswdtModelPage">
+                <column name="id_model_page" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswgaSecteurs" table="bswga_secteur" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaSecteur" />
+        </set>
+        <set name="bswgaTarifs" table="bswga_tarif" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaTarif" />
+        </set>
+        <set name="bswgaModeles" table="bswga_modele" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaModele" />
+        </set>
+        <set name="bswJournalsForIdJournal" table="bsw_journal_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal_fond_commun" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+                <column name="id_journal" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswPersonnes_1" table="bsw_personne_has_bsw_journal" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal_disponible" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswPersonne">
+                <column name="id_personne_disponilbe" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswJournalsForIdJournalFondCommun" table="bsw_journal_has_bsw_journal_fond_commun" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswJournal">
+                <column name="id_journal_fond_commun" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswSecteurs" table="bsw_journal_has_bsw_secteur" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswSecteur">
+                <column name="id_secteur" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswDepartements" table="bsw_journal_has_bsw_departement" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_journal" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswDepartement">
+                <column name="id_departement" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

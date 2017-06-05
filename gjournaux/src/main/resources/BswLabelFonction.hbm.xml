@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswLabelFonction" table="bsw_label_fonction">
+        <id name="idLabelFonction" type="java.lang.Integer">
+            <column name="id_label_fonction" />
+            <generator class="identity" />
+        </id>
+        <property name="idPortalEntity" type="java.lang.Integer">
+            <column name="id_portal_entity" />
+        </property>
+        <property name="nomMasculin" type="string">
+            <column name="nom_masculin" />
+        </property>
+        <property name="nomFeminin" type="string">
+            <column name="nom_feminin" />
+        </property>
+        <property name="nomMasculinPluriel" type="string">
+            <column name="nom_masculin_pluriel" />
+        </property>
+        <property name="nomFemininPluriel" type="string">
+            <column name="nom_feminin_pluriel" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="systeme" type="java.lang.Boolean">
+            <column name="systeme" />
+        </property>
+        <set name="bswFonctions" table="bsw_fonction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_label_fonction" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswFonction" />
+        </set>
+    </class>
+</hibernate-mapping>

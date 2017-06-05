@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswTransaction" table="bsw_transaction">
+        <id name="idTransaction" type="java.lang.Integer">
+            <column name="id_transaction" />
+            <generator class="identity" />
+        </id>
+        <property name="reabonnement" type="boolean">
+            <column name="reabonnement" not-null="true" />
+        </property>
+        <property name="nbExemplaires" type="java.lang.Integer">
+            <column name="nb_exemplaires" />
+        </property>
+        <property name="numeroDebut" type="java.lang.Integer">
+            <column name="numero_debut" />
+        </property>
+        <property name="montant" type="string">
+            <column name="montant" length="45" />
+        </property>
+        <property name="idStatut" type="int">
+            <column name="id_statut" not-null="true" />
+        </property>
+        <property name="statut" type="string">
+            <column name="statut" length="45" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0" />
+        </property>
+        <property name="refBanque" type="string">
+            <column name="ref_banque" />
+        </property>
+        <property name="idUnitorg" type="java.lang.Integer">
+            <column name="id_unitorg" />
+        </property>
+        <property name="idJournal" type="java.lang.Integer">
+            <column name="id_journal" />
+        </property>
+        <property name="idAbonne" type="java.lang.Integer">
+            <column name="id_abonne" />
+        </property>
+        <property name="idAbonnement" type="java.lang.Integer">
+            <column name="id_abonnement" />
+        </property>
+        <property name="idTarif" type="java.lang.Integer">
+            <column name="id_tarif" />
+        </property>
+        <property name="idModePaiement" type="java.lang.Integer">
+            <column name="id_mode_paiement" />
+        </property>
+        <property name="idReferenceSystemeBancaire" type="java.lang.Integer">
+            <column name="id_reference_systeme_bancaire" />
+        </property>
+        <property name="log" type="string">
+            <column name="log" length="65535" />
+        </property>
+        <property name="nom" type="string">
+            <column name="nom" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" />
+        </property>
+        <property name="mdp" type="string">
+            <column name="mdp" length="45" />
+        </property>
+        <property name="idCivilite" type="java.lang.Integer">
+            <column name="id_civilite" />
+        </property>
+        <property name="idPays" type="java.lang.Integer">
+            <column name="id_pays" />
+        </property>
+        <property name="societe" type="string">
+            <column name="societe" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="siteWeb" type="string">
+            <column name="siteWeb" />
+        </property>
+        <property name="destinataire" type="string">
+            <column name="destinataire" />
+        </property>
+        <property name="destinataireComplement" type="string">
+            <column name="destinataireComplement" />
+        </property>
+        <property name="adresseLigne1" type="string">
+            <column name="adresseLigne1" />
+        </property>
+        <property name="adresseLigne3" type="string">
+            <column name="adresseLigne3" />
+        </property>
+        <property name="numeroVoie" type="string">
+            <column name="numeroVoie" />
+        </property>
+        <property name="libelleVoie" type="string">
+            <column name="libelleVoie" />
+        </property>
+        <property name="codePostal" type="string">
+            <column name="codePostal" length="45" />
+        </property>
+        <property name="ville" type="string">
+            <column name="ville" />
+        </property>
+        <property name="cedex" type="string">
+            <column name="cedex" />
+        </property>
+        <property name="typeAdressePostale" type="string">
+            <column name="typeAdressePostale" />
+        </property>
+    </class>
+</hibernate-mapping>

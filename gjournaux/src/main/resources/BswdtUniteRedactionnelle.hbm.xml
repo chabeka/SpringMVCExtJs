@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswdtUniteRedactionnelle" table="bswdt_unite_redactionnelle">
+        <id name="idUniteRedactionnelle" type="java.lang.Integer">
+            <column name="id_unite_redactionnelle" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswdtContenuTexte" class="com.bsw.ga.model.BswdtContenuTexte" fetch="select">
+            <column name="id_contenu_texte" />
+        </many-to-one>
+        <many-to-one name="bswdtContenuImage" class="com.bsw.ga.model.BswdtContenuImage" fetch="select">
+            <column name="id_contenu_image" />
+        </many-to-one>
+        <many-to-one name="bswPersonne" class="com.bsw.ga.model.BswPersonne" fetch="select">
+            <column name="id_personne" />
+        </many-to-one>
+        <many-to-one name="bswdtUniteRedactionnelleDefinition" class="com.bsw.ga.model.BswdtUniteRedactionnelleDefinition" fetch="select">
+            <column name="id_unite_redactionnelle_definition" />
+        </many-to-one>
+        <many-to-one name="bswdtPage" class="com.bsw.ga.model.BswdtPage" fetch="select">
+            <column name="id_page" />
+        </many-to-one>
+        <many-to-one name="bswdtContenuFichier" class="com.bsw.ga.model.BswdtContenuFichier" fetch="select">
+            <column name="id_contenu_fichier" />
+        </many-to-one>
+        <property name="numero" type="string">
+            <column name="numero" />
+        </property>
+        <property name="sujet" type="string">
+            <column name="sujet" length="65535" />
+        </property>
+        <property name="reference" type="string">
+            <column name="reference">
+                <comment>liste les references des ur utilisees pour une fusion</comment>
+            </column>
+        </property>
+        <property name="miseEnPage" type="java.lang.Boolean">
+            <column name="mise_en_page" />
+        </property>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="65535" />
+        </property>
+        <property name="dateLimiteDepot" type="date">
+            <column name="date_limite_depot" length="0" />
+        </property>
+        <property name="statut" type="string">
+            <column name="statut" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="0" />
+        </property>
+        <property name="dateModification" type="timestamp">
+            <column name="date_modification" length="0" />
+        </property>
+        <property name="auteurCreation" type="string">
+            <column name="auteur_creation" />
+        </property>
+        <property name="auteurModification" type="string">
+            <column name="auteur_modification" />
+        </property>
+        <property name="publiSiteGene" type="boolean">
+            <column name="publi_site_gene" not-null="true" />
+        </property>
+        <property name="verrouillage" type="boolean">
+            <column name="verrouillage" not-null="true" />
+        </property>
+        <property name="emailVerrouilleur" type="string">
+            <column name="email_verrouilleur" />
+        </property>
+        <property name="dateVerrouillage" type="timestamp">
+            <column name="date_verrouillage" length="0" />
+        </property>
+        <set name="bswdtForums" table="bswdt_forum" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_unite_redactionnelle" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtForum" />
+        </set>
+    </class>
+</hibernate-mapping>

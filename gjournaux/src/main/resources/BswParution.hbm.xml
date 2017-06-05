@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswParution" table="bsw_parution">
+        <id name="idParution" type="java.lang.Integer">
+            <column name="id_parution" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswJournal" class="com.bsw.ga.model.BswJournal" fetch="select">
+            <column name="id_journal" />
+        </many-to-one>
+        <property name="mensualite" type="string">
+            <column name="mensualite" />
+        </property>
+        <property name="numero" type="string">
+            <column name="numero" />
+        </property>
+        <property name="dateRemiseBse" type="date">
+            <column name="date_remise_bse" length="0" />
+        </property>
+        <property name="dateRemiseJournal" type="date">
+            <column name="date_remise_journal" length="0" />
+        </property>
+        <property name="dateRemiseUrs" type="date">
+            <column name="date_remise_urs" length="0" />
+        </property>
+        <property name="dateBat" type="date">
+            <column name="date_bat" length="0" />
+        </property>
+        <property name="dateImprimeur" type="date">
+            <column name="date_imprimeur" length="0" />
+        </property>
+        <property name="dateLivraison" type="date">
+            <column name="date_livraison" length="0" />
+        </property>
+        <property name="closed" type="boolean">
+            <column name="closed" not-null="true" />
+        </property>
+        <property name="commentaire" type="string">
+            <column name="commentaire" length="65535" />
+        </property>
+        <property name="horsSerie" type="boolean">
+            <column name="hors_serie" not-null="true" />
+        </property>
+        <property name="hsNumeroDebut" type="java.lang.Integer">
+            <column name="hs_numero_debut" />
+        </property>
+        <property name="hsNumeroFin" type="java.lang.Integer">
+            <column name="hs_numero_fin" />
+        </property>
+        <property name="dateCreation" type="timestamp">
+            <column name="date_creation" length="0" />
+        </property>
+        <property name="dateModification" type="timestamp">
+            <column name="date_modification" length="0" />
+        </property>
+        <property name="auteurCreation" type="string">
+            <column name="auteur_creation" />
+        </property>
+        <property name="auteurModification" type="string">
+            <column name="auteur_modification" />
+        </property>
+        <property name="availableToFoliation" type="byte">
+            <column name="available_to_foliation" not-null="true" />
+        </property>
+        <property name="sequencePagination" type="string">
+            <column name="sequence_pagination" />
+        </property>
+        <set name="bswdfFichiers" table="bswdf_fichier" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_parution" not-null="true" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdfFichier" />
+        </set>
+        <set name="bswParutionsForIdParutionFondCommun" table="bsw_parution_has_bsw_parution" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_parution" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+                <column name="id_parution_fond_commun" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswgaTarifs" table="bsw_parution_has_bswga_tarif" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_parution" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswgaTarif">
+                <column name="id_tarif" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswParutionsForIdParution" table="bsw_parution_has_bsw_parution" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="id_parution_fond_commun" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.bsw.ga.model.BswParution">
+                <column name="id_parution" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="bswdtPages" table="bswdt_page" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_parution" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswdtPage" />
+        </set>
+    </class>
+</hibernate-mapping>

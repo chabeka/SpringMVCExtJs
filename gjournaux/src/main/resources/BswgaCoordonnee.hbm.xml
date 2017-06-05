@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 mars 2014 09:23:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bsw.ga.model.BswgaCoordonnee" table="bswga_coordonnee">
+        <id name="idCoordonnee" type="java.lang.Integer">
+            <column name="id_coordonnee" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="bswgaPays" class="com.bsw.ga.model.BswgaPays" fetch="select">
+            <column name="id_pays" not-null="true" />
+        </many-to-one>
+        <property name="libelle" type="string">
+            <column name="libelle" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="siteWeb" type="string">
+            <column name="site_web" />
+        </property>
+        <property name="typeAdressePostale" type="string">
+            <column name="type_adresse_postale" length="13" />
+        </property>
+        <property name="destinataire" type="string">
+            <column name="destinataire" />
+        </property>
+        <property name="destinataireComplement" type="string">
+            <column name="destinataire_complement" />
+        </property>
+        <property name="adresseLigne1" type="string">
+            <column name="adresse_ligne1" />
+        </property>
+        <property name="numeroVoie" type="string">
+            <column name="numero_voie" length="45" />
+        </property>
+        <property name="libelleVoie" type="string">
+            <column name="libelle_voie" />
+        </property>
+        <property name="adresseLigne3" type="string">
+            <column name="adresse_ligne3" />
+        </property>
+        <property name="codePostal" type="string">
+            <column name="code_postal" length="45" />
+        </property>
+        <property name="ville" type="string">
+            <column name="ville" />
+        </property>
+        <property name="cedex" type="string">
+            <column name="cedex" />
+        </property>
+        <property name="defaut" type="boolean">
+            <column name="defaut" not-null="true" />
+        </property>
+        <set name="bswgaModeExpeditions" table="bswga_mode_expedition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_coordonnee" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaModeExpedition" />
+        </set>
+        <set name="bswgaAbonnements" table="bswga_abonnement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_coordonnee" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaAbonnement" />
+        </set>
+        <set name="bswgaAbonnes" table="bswga_abonne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_coordonnee" />
+            </key>
+            <one-to-many class="com.bsw.ga.model.BswgaAbonne" />
+        </set>
+    </class>
+</hibernate-mapping>
