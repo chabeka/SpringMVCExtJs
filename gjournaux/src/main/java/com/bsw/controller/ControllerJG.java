@@ -17,7 +17,6 @@ import com.gj.util.Utils;
 
 
 @Controller
-@RequestMapping("/hello")
 public class ControllerJG {
 	
 	
@@ -26,6 +25,7 @@ public class ControllerJG {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(ModelMap model) {
+		System.out.println("bswJournals.size()");
 		model.addAttribute("message", "Hello Spring WEB MVC!");
 		return "hello";
 	}
@@ -35,6 +35,7 @@ public class ControllerJG {
 	
 	@RequestMapping(value="services/journaux", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Map<String, ? extends Object> getJournaux(String nameLike, String bse, String client, String journal) throws Exception{
+		System.out.println("bswJournals.size()" + nameLike);
 		
 		Map<String, String> filtersmap = new HashMap<String, String>();
 					

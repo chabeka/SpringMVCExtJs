@@ -23,6 +23,7 @@ public class BswJournalManager {
 	}
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 	public List<BswJournal> listBswJournal(String name){
+		System.out.println("bswJournals.size()");
 		List<BswJournal> listJournal = (List<BswJournal>) bswJournalDAO.getByName(name);
 		return listJournal;	
 	}
