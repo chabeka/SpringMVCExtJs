@@ -14,14 +14,9 @@ import com.gj.model.BswJournal;
 public class BwsJournalDAOImpl extends AbstractGenericDAO<BswJournal, Long> implements IBswJournalDAO {
 
 	public List<BswJournal> getByName(String name) {
-		System.out.println("getByName");
-		System.out.println(currentSession());
 		String sql = "from BswJournal as j where j.titre like ?";
 		Query query = currentSession().createQuery(sql);
 		query.setString(0, "%"+name+"%");
-		
-		System.out.println(query.list());
-		
 		return (List<BswJournal>) query.list();
 
 	}
@@ -31,10 +26,14 @@ public class BwsJournalDAOImpl extends AbstractGenericDAO<BswJournal, Long> impl
 		return j;
 	}
 
-	@Override
-	public List getJournauxByIdClient(Integer idClient, Integer start, Integer limit) {
+
+	public List<BswJournal> getJournauxByIdClient(Integer idClient, Integer start, Integer limit) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public BswJournal addBswJournal(BswJournal journal) {
+		return saveOrUpdate(journal);
 	}
 	
 }

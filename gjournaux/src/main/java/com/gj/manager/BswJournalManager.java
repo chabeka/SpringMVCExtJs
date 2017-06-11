@@ -21,9 +21,15 @@ public class BswJournalManager {
 	public BswJournalManager() {
 
 	}
+	
+	@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
+	public List<BswJournal> allBswJournal(){
+		List<BswJournal> listJournal = (List<BswJournal>) bswJournalDAO.getAll();
+		return listJournal;	
+	} 
+	
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 	public List<BswJournal> listBswJournal(String name){
-		System.out.println("bswJournals.size()");
 		List<BswJournal> listJournal = (List<BswJournal>) bswJournalDAO.getByName(name);
 		return listJournal;	
 	}
@@ -31,5 +37,10 @@ public class BswJournalManager {
 	@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 	public BswJournal getJournalById(Integer idJournal){
 		return bswJournalDAO.getByIdJournal(idJournal);
+	}
+	
+	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+	public BswJournal addBswJournal(BswJournal journal){
+		return bswJournalDAO.addBswJournal(journal);
 	}
 }

@@ -12,6 +12,7 @@ public interface IBswJournalDAO extends GenericDAO<BswJournal, Long>{
 
 	public List<BswJournal> getByName(String name);
 	public BswJournal getByIdJournal(Integer idJournal);
+	public BswJournal addBswJournal(BswJournal journal);
 	
 	// BSWJOURNAL
 	

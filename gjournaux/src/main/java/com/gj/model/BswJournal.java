@@ -690,4 +690,18 @@ public class BswJournal implements Serializable {
 		this.bswDepartements = bswDepartements;
 	}
 
+	@Override
+	public String toString() {
+		return "BswJournal [idJournal=" + idJournal + ", titre=" + titre + ", sousTitre=" + sousTitre + ", code=" + code
+				+ ", lieu=" + lieu + ", nbParutions=" + nbParutions + ", nbPages=" + nbPages + ", fondCommun="
+				+ fondCommun + ", commentaire=" + commentaire + ", abonnementOuvert=" + abonnementOuvert
+				+ ", paiementCb=" + paiementCb + ", formatFacture=" + formatFacture + ", formatClient=" + formatClient
+				+ ", dateCreation=" + dateCreation + ", dateModification=" + dateModification + ", auteurCreation="
+				+ auteurCreation + ", auteurModification=" + auteurModification + ", urlApercuVignette="
+				+ urlApercuVignette + ", urlPagePresentation=" + urlPagePresentation + ", localite=" + localite
+				+ ", sequencePagination=" + sequencePagination + ", reference=" + reference + ", fusionDesUrs="
+				+ fusionDesUrs + ", siteGeneBase=" + siteGeneBase + ", siteGeneUrl=" + siteGeneUrl + ", siteGeneLogin="
+				+ siteGeneLogin + ", siteGeneMdp=" + siteGeneMdp + ", miseEnFormeEtendue=" + miseEnFormeEtendue + "]";
+	}
+
 }

@@ -327,4 +327,16 @@ public class BswParution   {
 		this.bswdtPages = bswdtPages;
 	}
 
+	@Override
+	public String toString() {
+		return "BswParution [idParution=" + idParution + ", mensualite=" + mensualite + ", numero=" + numero
+				+ ", dateRemiseBse=" + dateRemiseBse + ", dateRemiseJournal=" + dateRemiseJournal + ", dateRemiseUrs="
+				+ dateRemiseUrs + ", dateBat=" + dateBat + ", dateImprimeur=" + dateImprimeur + ", dateLivraison="
+				+ dateLivraison + ", closed=" + closed + ", commentaire=" + commentaire + ", horsSerie=" + horsSerie
+				+ ", hsNumeroDebut=" + hsNumeroDebut + ", hsNumeroFin=" + hsNumeroFin + ", dateCreation=" + dateCreation
+				+ ", dateModification=" + dateModification + ", auteurCreation=" + auteurCreation
+				+ ", auteurModification=" + auteurModification + ", availableToFoliation=" + availableToFoliation
+				+ ", sequencePagination=" + sequencePagination + "]";
+	}
+
 }
