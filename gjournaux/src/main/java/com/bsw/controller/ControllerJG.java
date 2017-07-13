@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import com.gj.manager.BswJournalManager;
-import com.gj.manager.BswParutionManager;
+import com.gj.manager.IBswJournalManager;
+import com.gj.manager.IBswParutionManager;
 import com.gj.model.BswJournal;
 import com.gj.model.BswParution;
 import com.gj.util.ObjectNullExecption;
@@ -26,10 +26,10 @@ public class ControllerJG {
 	
 	
 	@Autowired
-	private BswJournalManager bswJournalManager;
+	private IBswJournalManager bswJournalManager;
 	
 	@Autowired
-	private BswParutionManager bswParutionManager;
+	private IBswParutionManager bswParutionManager;
 	
 	// TEST
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
